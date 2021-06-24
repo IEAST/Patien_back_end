@@ -15,9 +15,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+import configparser
 
+cf = configparser.RawConfigParser()
+cf.read("Patien_back_end/conf.ini")
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = cf.get("SECRET_KEY","SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -67,7 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Patien_back_end.wsgi.application'
 
-
 REST_FRAMWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": ['Patient.auth.Authtication', ],
     "UNAUTHENTICATED_USER": None,
@@ -78,6 +81,19 @@ REST_FRAMWORK = {
     ]
 }
 
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': cf.get("Database", "ENGINE"),
+        'NAME': cf.get("Database", "NAME"),
+        'USER': cf.get("Database", "USER"),
+        'PASSWORD': cf.get("Database", "PASSWORD"),
+        'HOST': cf.get("Database", "HOST"),
+        'PORT': cf.get("Database", "PORT")
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
