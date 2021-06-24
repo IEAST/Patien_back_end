@@ -14,6 +14,7 @@ pip install django-rest-framework
 ## 使用方法
 
 新建 `Patien_back_end/Patien_back_end/conf.ini`文件，修改里面的内容或者修改`setting.py`中`cf.read("Patien_back_end/conf.ini")`指向的文件地址。
+
     ```ini
     [Database]
     ENGINE=django.db.backends.mysql 
@@ -29,8 +30,7 @@ pip install django-rest-framework
     PORT=
     [SECRET_KEY]
     ;setting.py文件中的secret_key的值
-    SECRET_KEY =  
-    
+    SECRET_KEY =
     ```
 
 
