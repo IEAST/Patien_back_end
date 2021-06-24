@@ -15,7 +15,7 @@ pip install django-rest-framework
 
 新建 `Patien_back_end/Patien_back_end/conf.ini`文件，修改里面的内容或者修改`setting.py`中`cf.read("Patien_back_end/conf.ini")`指向的文件地址。
 
-    ```ini
+    ```
     [Database]
     ENGINE=django.db.backends.mysql 
     ;数据库名称
